@@ -1,0 +1,22 @@
+@import "common.css";
+
+.title-label {
+    -fx-font-size: 15;
+}
+
+.title-button {
+    -fx-background-color: transparent;
+}
+
+.close-button {
+    -fx-background-color: transparent;
+}
+
+.close-button:hover {
+    -fx-background-color: red;
+}
+
+.title-button-icon {
+    -fx-fill: white;
+    -fx-cursor: hand;
+}

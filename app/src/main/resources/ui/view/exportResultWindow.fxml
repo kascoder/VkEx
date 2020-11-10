@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<VBox prefHeight="300" prefWidth="550" spacing="5"
+      style="-fx-background-color: white"
+      stylesheets="/ui/css/exportResultWindow.css"
+      fx:controller="org.kascoder.vkex.desktop.controller.ExportResultWindowController"
+      xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox spacing="10">
+        <Label text="Path:">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" top="5.0"/>
+            </HBox.margin>
+        </Label>
+        <Label fx:id="folderPath">
+            <HBox.margin>
+                <Insets bottom="5.0" top="5.0"/>
+            </HBox.margin>
+        </Label>
+        <Button onAction="#openFolder" focusTraversable="false" style="-fx-background-color: transparent;">
+            <graphic>
+                <FontIcon iconLiteral="far-folder-open" iconSize="15" styleClass="icon"/>
+            </graphic>
+            <HBox.margin>
+                <Insets bottom="5.0" top="5.0"/>
+            </HBox.margin>
+            <tooltip>
+                <Tooltip text="Open folder"/>
+            </tooltip>
+        </Button>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Attachments:">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" top="5.0"/>
+            </HBox.margin>
+        </Label>
+        <Label fx:id="attachmentsDownloadResult">
+            <HBox.margin>
+                <Insets bottom="5.0" top="5.0"/>
+            </HBox.margin>
+        </Label>
+    </HBox>
+    <ToolBar fx:id="attachmentProblemsTableToolbar" style="-fx-background-color: white">
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </VBox.margin>
+    </ToolBar>
+    <TableView fx:id="attachmentProblemsTable" style="-fx-selection-bar: #E6E7E8;" focusTraversable="false">
+        <placeholder>
+            <Label text="Empty" />
+        </placeholder>
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+        </VBox.margin>
+        <columns>
+            <TableColumn fx:id="attachmentProblemsTableStatusColumn" prefWidth="45.0" reorderable="false" sortable="false" style="-fx-alignment: CENTER;" text="Status" />
+            <TableColumn fx:id="attachmentProblemsTableTypeColumn" prefWidth="140.0" reorderable="false" style="-fx-alignment: CENTER;" text="Type" />
+            <TableColumn fx:id="attachmentProblemsTableErrorColumn" prefWidth="345.0" reorderable="false" sortable="false" style="-fx-alignment: CENTER;" text="Error" />
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import org.kascoder.vkex.desktop.util.controls.DateTimePicker?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<HBox xmlns:fx="http://javafx.com/fxml" spacing="20" fx:id="searchBar"
+      stylesheets="/ui/css/searchBar.css"
+      fx:controller="org.kascoder.vkex.desktop.controller.SearchBarController">
+    <HBox spacing="10">
+        <CheckBox fx:id="fromDateTimeFilterCheck" focusTraversable="false" onAction="#resetFromDateTimePicker"/>
+        <Label text="From:"/>
+        <DateTimePicker fx:id="fromDateTimePicker" maxWidth="150"
+                        promptText="dd.mm.yyyy hh:mm" showWeekNumbers="true"
+                        format="dd.MM.yyyy HH:mm" disable="true">
+            <tooltip>
+                <Tooltip text="Requires ENTER press to apply changes"/>
+            </tooltip>
+        </DateTimePicker>
+    </HBox>
+
+    <HBox spacing="10">
+        <CheckBox fx:id="toDateTimeFilterCheck" focusTraversable="false" onAction="#resetToDateTimePicker"/>
+        <Label text="To:"/>
+        <DateTimePicker fx:id="toDateTimePicker" maxWidth="150"
+                        promptText="dd.mm.yyyy hh:mm" showWeekNumbers="true"
+                        format="dd.MM.yyyy HH:mm" disable="true">
+            <tooltip>
+                <Tooltip text="Requires ENTER press to apply changes"/>
+            </tooltip>
+        </DateTimePicker>
+    </HBox>
+    <Button text="Search" onAction="#initiateSearch" focusTraversable="false" styleClass="outline-button">
+        <graphic>
+            <FontIcon iconLiteral="fas-search" iconSize="15" styleClass="icon"/>
+        </graphic>
+        <tooltip>
+            <Tooltip text="Search messages"/>
+        </tooltip>
+    </Button>
+</HBox>

@@ -1,0 +1,5 @@
+@import "colors.css";
+
+.job-indicator {
+    -fx-progress-color: -fx-app-color;
+}

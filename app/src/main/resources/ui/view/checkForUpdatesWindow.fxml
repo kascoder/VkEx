@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<VBox spacing="5"
+      style="-fx-background-color: white"
+      stylesheets="/ui/css/common.css"
+      fx:controller="org.kascoder.vkex.desktop.controller.CheckForUpdatesController"
+      xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+
+    <padding>
+        <Insets top="10" bottom="10" left="5" right="5"/>
+    </padding>
+
+    <VBox alignment="CENTER">
+        <Text fx:id="infoText" textAlignment="CENTER" visible="false" wrappingWidth="280"/>
+        <Hyperlink fx:id="appWebsiteLink" focusTraversable="false" styleClass="link" visible="false" text="Application website"/>
+        <Button fx:id="updateButton" text="Update" visible="false" styleClass="outline-button"/>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets top="5"/>
+            </padding>
+            <ProgressIndicator fx:id="progressIndicator" style="-fx-progress-color: -fx-app-color;"/>
+        </HBox>
+    </VBox>
+</VBox>

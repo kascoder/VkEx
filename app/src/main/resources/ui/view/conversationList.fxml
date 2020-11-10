@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.geometry.Insets?>
+<VBox fx:id="conversationListHolder" fx:controller="org.kascoder.vkex.desktop.controller.ConversationListController"
+      stylesheets="/ui/css/conversationList.css"
+      prefWidth="250"
+      spacing="5"
+      prefHeight="500"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml">
+
+    <padding>
+        <Insets top="5" right="1" left="10"/>
+    </padding>
+
+    <AnchorPane prefHeight="20">
+        <Button fx:id="refreshBtn" AnchorPane.rightAnchor="25" style="-fx-background-color: transparent;" mnemonicParsing="false" focusTraversable="false">
+            <graphic>
+                <FontIcon iconLiteral="fas-sync" iconSize="15" styleClass="icon"/>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Refresh Chats"/>
+            </tooltip>
+        </Button>
+        <MenuButton fx:id="menuButton" AnchorPane.rightAnchor="0" style="-fx-background-color: transparent;" mnemonicParsing="false" focusTraversable="false">
+            <graphic>
+                <FontIcon iconLiteral="fas-ellipsis-h" iconSize="15" styleClass="icon"/>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Menu"/>
+            </tooltip>
+            <items>
+                <MenuItem text="Settings" visible="false"/>
+                <MenuItem text="About app" visible="false"/>
+                <MenuItem text="Check for Updates" onAction="#checkForUpdates"/>
+                <MenuItem text="Log out" onAction="#logout"/>
+            </items>
+        </MenuButton>
+    </AnchorPane>
+    <ListView fx:id="conversations" styleClass="conversations" visible="false" focusTraversable="false" prefHeight="510"/>
+</VBox>

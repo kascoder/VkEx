@@ -1,0 +1,28 @@
+@import "colors.css";
+
+.alert {
+    -fx-background-color: white
+}
+
+.alert .button:default {
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-app-color;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.alert .button:cancel {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-app-color;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.alert > .content.label {
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
