@@ -3,10 +3,9 @@ import io.github.fvarrui.javapackager.gradle.PackageTask
 buildscript {
     repositories {
         mavenCentral()
-        mavenLocal() // TODO remove later
     }
     dependencies {
-        classpath 'io.github.fvarrui:javapackager:1.4.0-SNAPSHOT' // TODO change later
+        classpath 'io.github.fvarrui:javapackager:1.4.0'
     }
 }
 
