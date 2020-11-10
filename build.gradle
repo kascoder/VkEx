@@ -3,10 +3,9 @@ import io.github.fvarrui.javapackager.gradle.PackageTask
 buildscript {
     repositories {
         mavenCentral()
-        mavenLocal() // TODO remove later
     }
     dependencies {
-        classpath 'io.github.fvarrui:javapackager:1.4.0-SNAPSHOT' // TODO change later
+        classpath 'io.github.fvarrui:javapackager:1.4.0'
     }
 }
 
@@ -16,7 +15,7 @@ plugins {
 
 subprojects {
     group 'org.kascoder'
-    version = '0.3.0-SNAPSHOT'
+    version = '1.0.0'
     sourceCompatibility = 15
     targetCompatibility = 15
 
@@ -37,7 +36,7 @@ subprojects {
 apply plugin: 'io.github.fvarrui.javapackager.plugin'
 
 task packageCliApp(type: PackageTask, dependsOn: build) {
-    version = '0.3.0-SNAPSHOT'
+    version = '1.0.0'
     mainClass = 'org.kascoder.vkex.VkExLauncher'
     bundleJre = true
     description = 'A simple app which allows to export attachments from your vkontakte conversations'
@@ -64,7 +63,7 @@ task packageCliApp(type: PackageTask, dependsOn: build) {
 }
 
 task packageDesktopApplication(type: PackageTask, dependsOn: packageCliApp) {
-    version = '0.3.0-SNAPSHOT'
+    version = '1.0.0'
     mainClass = 'org.kascoder.vkex.VkExLauncher'
     bundleJre = true
     description = 'A simple app which allows to export attachments from vkontakte conversations'
