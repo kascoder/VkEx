@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="/ui/css/colors.css"
+            style="-fx-background-color: #FFFFFF; -fx-border-color: #577ca1;-fx-border-width: 1px 1px 1px 1px">
+    <left>
+        <fx:include source="conversationList.fxml" style="-fx-border-color: #cccccc;-fx-border-width: 0px 1px 0px 0px"/>
+    </left>
+    <top>
+        <fx:include source="titleBar.fxml"/>
+    </top>
+    <center>
+        <fx:include source="exportLayout.fxml" style="-fx-border-color: #cccccc;-fx-border-width: 0px 0px 0px 0px"/>
+    </center>
+    <bottom>
+        <fx:include source="statusBar.fxml" style="-fx-border-color: #cccccc;-fx-border-width: 1px 0px 0px 0px"/>
+    </bottom>
+</BorderPane>

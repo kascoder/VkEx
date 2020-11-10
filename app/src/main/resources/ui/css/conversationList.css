@@ -1,0 +1,77 @@
+@import "common.css";
+
+.menu-button > .arrow-button, .menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.context-menu {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+}
+
+.menu-item .label, .menu-item:focused .label {
+    -fx-text-fill: black;
+}
+
+.menu-item:focused {
+    -fx-background-color: #f5f5f5;
+}
+
+.conversations {
+    -fx-padding: 0px;
+    -fx-background-color: white;
+}
+
+.conversations .list-cell:hover {
+    -fx-background-color: white;
+}
+
+.conversations .list-cell:selected {
+    -fx-background-color: #f5f5f5;
+}
+
+.conversations .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-pref-height: 50;
+}
+
+/* The main scrollbar **track** CSS class  */
+.conversations .scroll-bar:horizontal .track,
+.conversations .scroll-bar:vertical .track {
+    -fx-background-color: white;
+    -fx-background-radius: 0em;
+    -fx-border-radius: 2em;
+    -fx-border-width: 0;
+}
+
+/* The increment and decrement button CSS class of scrollbar */
+.conversations .scroll-bar:horizontal .increment-button,
+.conversations .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 0 10 0;
+}
+
+/* The increment and decrement button CSS class of scrollbar */
+.conversations .scroll-bar:vertical .increment-button,
+.conversations .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-padding: 0 10 0 0;
+
+}
+
+.conversations .scroll-bar .increment-arrow,
+.conversations .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.conversations .scroll-bar:horizontal .thumb,
+.conversations .scroll-bar:vertical .thumb {
+    -fx-background-color: derive(black, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+}

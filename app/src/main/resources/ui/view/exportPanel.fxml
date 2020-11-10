@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="10"
+      fx:id="panel" visible="false"
+      stylesheets="/ui/css/exportPanel.css"
+      fx:controller="org.kascoder.vkex.desktop.controller.ExportPanelController">
+    <HBox fx:id="pathBar" spacing="10">
+        <TextFlow>
+            <Label text="Export path:"/>
+            <Hyperlink fx:id="downloadPathLink" styleClass="path-link" focusTraversable="false" onAction="#chooseDownloadDirectory"/>
+        </TextFlow>
+    </HBox>
+    <HBox fx:id="optionsBar" spacing="10">
+        <Label text="Attachments:"/>
+        <CheckBox fx:id="audioCheck" text="Audio" focusTraversable="false"/>
+        <CheckBox fx:id="audioMsgCheck" text="Audio message" focusTraversable="false"/>
+        <CheckBox fx:id="documentCheck" text="Document" focusTraversable="false"/>
+        <CheckBox fx:id="photoCheck" text="Photo" focusTraversable="false"/>
+        <CheckBox fx:id="videoCheck" text="Video" focusTraversable="false"/>
+        <CheckBox fx:id="archiveCheck" text="Archive" focusTraversable="false"/>
+        <CheckBox fx:id="gifCheck" text="Gif" focusTraversable="false"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <VBox spacing="10">
+            <Button fx:id="exportBtn" styleClass="commerce-button" text="Export" focusTraversable="false" onAction="#initiateExportStart"/>
+            <Button fx:id="stopExportBtn" styleClass="destructive-button" text="Stop" focusTraversable="false" onAction="#initiateExportStop"/>
+        </VBox>
+
+        <HBox fx:id="exportProgressPane" spacing="10">
+            <ProgressBar fx:id="messageExportProgress" styleClass="export-progress"/>
+            <Label fx:id="messageExportProgressCaption"/>
+        </HBox>
+    </HBox>
+</VBox>

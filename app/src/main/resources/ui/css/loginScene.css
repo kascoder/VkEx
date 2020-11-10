@@ -1,0 +1,23 @@
+@import "common.css";
+
+.text-field:focused {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: -fx-app-color;
+}
+
+.text-field {
+    -fx-control-inner-background: #f5f5f5
+}
+
+.login-button {
+    -fx-font-size: 15px;
+    -fx-background-radius: 12;
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-app-color;
+    -fx-pref-width: 100;
+    -fx-text-fill: WHITE;
+}
+
+.login-indicator {
+    -fx-progress-color: -fx-app-color;
+}

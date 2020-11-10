@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            stylesheets="/ui/css/statusBar.css"
+            fx:controller="org.kascoder.vkex.desktop.controller.StatusBarController"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <HBox spacing="15" AnchorPane.rightAnchor="0">
+        <padding>
+            <Insets right="5" left="5" bottom="2" top="4"/>
+        </padding>
+
+        <HBox spacing="5" fx:id="jobItemsBox" visible="false"
+              xmlns:fx="http://javafx.com/fxml/1"
+              xmlns="http://javafx.com/javafx/10.0.2-internal">
+            <ProgressIndicator maxHeight="15" maxWidth="15" styleClass="job-indicator"/>
+            <Label fx:id="jobCaption"/>
+        </HBox>
+
+        <Label fx:id="conversationTitle"/>
+    </HBox>
+</AnchorPane>

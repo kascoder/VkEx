@@ -1,0 +1,22 @@
+@import "common.css";
+
+.export-progress > .track {
+    -fx-control-inner-background: #f5f5f5;
+}
+
+.export-progress {
+    -fx-accent: -fx-app-color;
+}
+
+.path-link:hover {
+    -fx-underline: false;
+}
+
+.path-link:visited {
+    -fx-underline: false;
+    -fx-text-fill: -fx-app-color;
+}
+
+.path-link {
+    -fx-text-fill: -fx-app-color;
+}

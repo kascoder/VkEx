@@ -1,0 +1,109 @@
+import io.github.fvarrui.javapackager.gradle.PackageTask
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal() // TODO remove later
+    }
+    dependencies {
+        classpath 'io.github.fvarrui:javapackager:1.4.0-SNAPSHOT' // TODO change later
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+subprojects {
+    group 'org.kascoder'
+    version = '0.3.0-SNAPSHOT'
+    sourceCompatibility = 15
+    targetCompatibility = 15
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+
+apply plugin: 'io.github.fvarrui.javapackager.plugin'
+
+task packageCliApp(type: PackageTask, dependsOn: build) {
+    version = '0.3.0-SNAPSHOT'
+    mainClass = 'org.kascoder.vkex.VkExLauncher'
+    bundleJre = true
+    description = 'A simple app which allows to export attachments from your vkontakte conversations'
+    jreDirectoryName = 'jre'
+    organizationName = 'kascoder'
+    organizationUrl = 'https://vk.com/paul_kasper'
+    organizationEmail = 'kascoder@gmail.com'
+    customizedJre = false
+    platform = 'windows'
+    displayName = 'VkEx'
+    copyDependencies = false
+    outputDirectory = file('/build/artifacts')
+    assetsDir = file('/assets')
+    url = 'https://vk.com/public195065105'
+    runnableJar = file('/app/build/libs/vkex.jar')
+
+    generateInstaller = false
+    appName = 'vkex-cli'
+    vmArgs = ['-Dexecution.type=console']
+    winConfig {
+        headerType = 'console'
+        wrapJar = false
+    }
+}
+
+task packageDesktopApplication(type: PackageTask, dependsOn: packageCliApp) {
+    version = '0.3.0-SNAPSHOT'
+    mainClass = 'org.kascoder.vkex.VkExLauncher'
+    bundleJre = true
+    description = 'A simple app which allows to export attachments from vkontakte conversations'
+    jreDirectoryName = 'jre'
+    organizationName = 'kascoder'
+    organizationUrl = 'https://vk.com/paul_kasper'
+    organizationEmail = 'kascoder@gmail.com'
+    customizedJre = false
+    platform = 'windows'
+    displayName = 'VkEx'
+    copyDependencies = false
+    outputDirectory = file('/build/artifacts')
+    assetsDir = file('/assets')
+    url = 'https://vk.com/public195065105'
+    runnableJar = file('/app/build/libs/vkex.jar')
+
+    appName = 'vkex'
+    generateInstaller = true
+    vmArgs = ['-Dexecution.type=gui']
+    additionalResources = [
+            file('/build/artifacts/vkex-cli/vkex-cli.exe'),
+            file('/build/artifacts/vkex-cli/vkex-cli.ico'),
+            file('/updater/build/libs/vkex-updater.jar')
+    ]
+    winConfig {
+        headerType = 'gui'
+        wrapJar = false
+        generateSetup = true
+        generateMsi = false
+        generateMsm = false
+        disableDirPage = false
+        disableFinishedPage = false
+        createDesktopIconTask = true
+        setupLanguages = [
+                enlish : 'compiler:Default.isl',
+                russian: 'compiler:Languages\\Russian.isl',
+                ukrainian: 'compiler:Languages\\Ukrainian.isl'
+        ]
+    }
+}
+
+task packageApplication(dependsOn: packageDesktopApplication)
