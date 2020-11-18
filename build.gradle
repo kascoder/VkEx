@@ -15,7 +15,7 @@ plugins {
 
 subprojects {
     group 'org.kascoder'
-    version = '1.0.0'
+    version = '1.1.0-SNAPSHOT'
     sourceCompatibility = 15
     targetCompatibility = 15
 
@@ -36,7 +36,7 @@ subprojects {
 apply plugin: 'io.github.fvarrui.javapackager.plugin'
 
 task packageCliApp(type: PackageTask, dependsOn: build) {
-    version = '1.0.0'
+    version = '1.1.0-SNAPSHOT'
     mainClass = 'org.kascoder.vkex.VkExLauncher'
     bundleJre = true
     description = 'A simple app which allows to export attachments from your vkontakte conversations'
@@ -63,7 +63,7 @@ task packageCliApp(type: PackageTask, dependsOn: build) {
 }
 
 task packageDesktopApplication(type: PackageTask, dependsOn: packageCliApp) {
-    version = '1.0.0'
+    version = '1.1.0-SNAPSHOT'
     mainClass = 'org.kascoder.vkex.VkExLauncher'
     bundleJre = true
     description = 'A simple app which allows to export attachments from vkontakte conversations'
