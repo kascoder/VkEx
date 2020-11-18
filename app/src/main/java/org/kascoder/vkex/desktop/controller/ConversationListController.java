@@ -7,6 +7,7 @@ import io.kascoder.vkclient.Error;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import org.kascoder.vkex.core.ApplicationContext;
 import org.kascoder.vkex.core.model.ApplicationConfiguration;
@@ -20,6 +21,10 @@ import org.kascoder.vkex.desktop.util.FXSceneRouter;
 import org.kascoder.vkex.desktop.util.Scene;
 import org.kascoder.vkex.desktop.util.UiUtils;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
@@ -69,6 +74,16 @@ public class ConversationListController implements ApplicationController {
             FXSceneRouter.openModal(Scene.CHECK_FOR_UPDATES_WINDOW);
         } catch (Exception e) {
             UiUtils.notifyError(e);
+        }
+    }
+
+    public void contactDevelopers() {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URL("https://vk.com/im?sel=-195065105").toURI());
+            } catch (IOException | URISyntaxException e) {
+                UiUtils.notifyError(e);
+            }
         }
     }
 

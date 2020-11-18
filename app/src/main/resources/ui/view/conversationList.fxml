@@ -37,6 +37,7 @@
                 <MenuItem text="Settings" visible="false"/>
                 <MenuItem text="About app" visible="false"/>
                 <MenuItem text="Check for Updates" onAction="#checkForUpdates"/>
+                <MenuItem text="Contact Developers" onAction="#contactDevelopers"/>
                 <MenuItem text="Log out" onAction="#logout"/>
             </items>
         </MenuButton>
