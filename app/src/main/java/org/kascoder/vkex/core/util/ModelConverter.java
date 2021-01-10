@@ -11,6 +11,8 @@ import org.kascoder.vkex.core.model.attachment.document.*;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static io.kascoder.vkclient.domain.model.PhotoSize.Type.m;
@@ -36,8 +38,10 @@ public class ModelConverter {
         var date = LocalDateTime.ofInstant(Instant.ofEpochSecond(msg.getDateUnixTime()), ZoneId.systemDefault());
         message.setDate(date);
 
-        var attachments = msg.getAttachments();
-        if (attachments != null && !attachments.isEmpty()) {
+        List<io.kascoder.vkclient.domain.model.Attachment> attachments = new ArrayList<>();
+        collectMessagesAttachments(List.of(msg), attachments);
+
+        if (!attachments.isEmpty()) {
             var attachmentList = attachments.stream()
                     .map(ModelConverter::convert)
                     .filter(Optional::isPresent)
@@ -211,5 +215,20 @@ public class ModelConverter {
         }
 
         return -1;
+    }
+
+    private void collectMessagesAttachments(List<io.kascoder.vkclient.domain.model.Message> messages,
+                                            List<io.kascoder.vkclient.domain.model.Attachment> attachmentStorage) {
+        if (messages == null) {
+            return;
+        }
+
+        for (io.kascoder.vkclient.domain.model.Message message : messages) {
+            if (message.getAttachments() != null) {
+                attachmentStorage.addAll(message.getAttachments());
+            }
+
+            collectMessagesAttachments(message.getForwardedMessages(), attachmentStorage);
+        }
     }
 }
