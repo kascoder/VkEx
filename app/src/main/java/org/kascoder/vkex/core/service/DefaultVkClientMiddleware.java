@@ -75,7 +75,7 @@ public class DefaultVkClientMiddleware implements VkClientMiddleware {
                     .count(limit)
                     .build();
             try {
-                final var response = client.executeRequest(VkApi.video.get(query)).get();
+                final var response = client.executeRequest(VkApi.video.get(query));
                 response.getVideoList()
                         .stream()
                         .map(ModelConverter::convert)
@@ -114,8 +114,7 @@ public class DefaultVkClientMiddleware implements VkClientMiddleware {
                     .build();
             HistoryMessageListResponse messageHistory;
             try {
-                messageHistory = client.executeRequest(VkApi.messages.getHistory(query))
-                        .get();
+                messageHistory = client.executeRequest(VkApi.messages.getHistory(query));
             } catch (RuntimeException e) {
                 throw e;
             } catch (Exception e) {
@@ -204,7 +203,7 @@ public class DefaultVkClientMiddleware implements VkClientMiddleware {
                 .extended(true)
                 .build();
 
-        return vkApiClient.executeRequest(VkApi.messages.getConversations(query))
+        return vkApiClient.executeRequestAsync(VkApi.messages.getConversations(query))
                 .thenApply(conversationListResponse -> {
                     Function<UserProfile, String> convertProfileToTitle = u -> u.getFirstName() + " " + u.getLastName();
                     Function<User, UserProfile> convertUserToProfile = u -> {
@@ -295,7 +294,7 @@ public class DefaultVkClientMiddleware implements VkClientMiddleware {
                 .extended(true)
                 .build();
 
-        return vkApiClient.executeRequest(VkApi.messages.getConversationsById(query))
+        return vkApiClient.executeRequestAsync(VkApi.messages.getConversationsById(query))
                 .thenApply(response -> {
                     Function<UserProfile, String> convertProfileToTitle = u -> u.getFirstName() + " " + u.getLastName();
                     Function<User, UserProfile> convertUserToProfile = u -> {
